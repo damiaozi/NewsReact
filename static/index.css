@@ -1,0 +1,79 @@
+html,body{
+	overflow-x: hidden;
+	background: #fff;
+}
+
+.item-container{
+	overflow:hidden;
+	width:100%;
+	padding:25px 10px; 
+	border-bottom: 1px solid #f5f5f5;
+	/* background: red; */
+	box-sizing: border-box;
+}
+
+/*.list-main{
+	margin-right:10px;
+}*/
+.list-main .tittle{
+	color:#333;
+	font-size:16px;
+}
+
+.list-bottom{
+	margin-top:5px;
+}
+
+.list-bottom .tip-time{
+	display:inline-block;
+	color:#999;
+	font-size:12px;
+	margin-right:5px;
+	font-weight:400;
+}
+
+.list-bottom .tip-type{
+	display:inline-block;
+	color:#ef3f41;
+	font-size:4px;
+	font-weight:400;
+	border:.1px solid #efb9b9;
+}
+
+
+
+.list-img{
+	float:left;
+	margin-right:10px;
+	width:33.33%;
+	text-align:center;
+	overflow:hidden;
+	background-color:#f4f7f9;
+	vertical-align:middle;
+}
+
+.list-img img{
+	height:auto;
+	width:100%;
+	vertical-align:middle;
+}
+
+
+.list-imgs{
+	width:100%;
+	overflow:hidden;
+}
+
+.list-img-wrap{
+	width:33.33%;
+	overflow:hidden;
+	/*vertical-align:middle;*/
+	float:left;
+	margin-top:10px;
+}
+
+.list-img-wrap img{
+	display: block;
+	width: 100%;
+	/* height: auto; */
+}
