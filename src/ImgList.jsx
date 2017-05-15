@@ -4,7 +4,7 @@ import {render} from 'react-dom'
 import MessageItem from './MessageItem.jsx'
 import {get} from './request.js'
 let type = 0;
-export default class MessageList extends Component{
+export default class ImgList extends Component{
     constructor(props,context){
         super(props);
         this.state={
@@ -27,16 +27,7 @@ export default class MessageList extends Component{
                 _this.setState({loadding:false,data:jsondata}); 
             }
         }); 
-        // fetch(sNewsList).then(function (response) {
-        //   return response.json();
-          
-        // }).then(function (jsondata) {
-        //   console.log(jsondata);
-        //   _this.setState({loadding:false,data:jsondata}); 
-        // }).catch(function (error) {
-        //    console.log(error);
-        //     _this.setState({loadding:false,error:error}); 
-        // });
+        
     }
 
 	render(){

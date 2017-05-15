@@ -38,7 +38,7 @@ export default class MessageItem extends Component{
 
 class MessageItem0 extends Component{
     ComponentWillReceiveProps(newProps){
-        console.log(newProps);
+        // console.log(newProps);
     }
   render() {
     var data = this.props.data;
@@ -56,7 +56,7 @@ class MessageItem1 extends Component{
   render() {
     var data = this.props.data;
     var imgurl = data.imageurls[0].url;
-    console.log(imgurl);
+    // console.log(imgurl);
     return <div className="item-container">
     	<div className="list-img">
     		<img src={imgurl} />

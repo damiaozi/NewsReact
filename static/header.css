@@ -1,0 +1,33 @@
+html,body{
+	overflow-x: hidden;
+	background: #fff;
+}
+li{
+	list-style: none;
+	
+}
+
+a{
+	text-decoration: none;
+}
+
+.nav{
+	position: fixed;
+	width: 100%;
+	background-color: #3e98f0;
+}
+
+.nav-menu{
+	
+	overflow: hidden;
+}
+
+.nav-menu >li{
+	float: left;
+}
+
+.nav-menu .link{
+	display: block;
+	color: #c2daf8;
+	padding: 0px 10px;
+}
