@@ -9,7 +9,11 @@ export default class MessageItem extends Component{
     componentDidMount(){
         
     }
-
+    
+     handleClick(sNid){
+        console.log('MessageItem-Click',sNid);
+        //调用父组件的方法，去做界面跳转
+    }
 	render(){
 
         // if (this.state.loadding) {
@@ -20,7 +24,7 @@ export default class MessageItem extends Component{
             type = this.props.type;
             var data = this.props.data;
             return (
-                <div>
+                <div onClick={this.handleClick.bind(this,data.nid)}>
                 {
                     type==0 ? <MessageItem0 data={data} /> : 
                     type==1 ? <MessageItem1 data={data} /> : 

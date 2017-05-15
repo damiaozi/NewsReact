@@ -77,3 +77,38 @@ html,body{
 	width: 100%;
 	/* height: auto; */
 }
+
+
+
+/*滚动条*/
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+
+}
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.swipe-wrap > div {
+    float: left;
+    width: 100 % ;
+    position: relative;
+}
+
+.swipe-wrap > div img{
+	display: block;
+	height:auto;
+	width:100%;
+}
+
+.swipe-wrap > div p{
+	position: absolute;
+	left: 20px;
+	bottom: 0px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	font-size:16px;
+}

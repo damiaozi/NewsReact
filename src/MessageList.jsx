@@ -3,6 +3,7 @@ import React,{ Component } from 'react' //es6
 import {render} from 'react-dom'
 import MessageItem from './MessageItem.jsx'
 import {get} from './request.js'
+import Carousel from './components/Carousel.js'
 let type = 0;
 export default class MessageList extends Component{
     constructor(props,context){
@@ -27,16 +28,6 @@ export default class MessageList extends Component{
                 _this.setState({loadding:false,data:jsondata}); 
             }
         }); 
-        // fetch(sNewsList).then(function (response) {
-        //   return response.json();
-          
-        // }).then(function (jsondata) {
-        //   console.log(jsondata);
-        //   _this.setState({loadding:false,data:jsondata}); 
-        // }).catch(function (error) {
-        //    console.log(error);
-        //     _this.setState({loadding:false,error:error}); 
-        // });
     }
 
 	render(){
@@ -48,6 +39,8 @@ export default class MessageList extends Component{
             // type = this.props.type;//数据决定
             var data = this.state.data;
             // console.log(data);
+            var aToppic = data.data.toppic;
+          
             var aNews = data.data.news;
             // console.log(aNews);
             var repoList = aNews.map((repo,index)=>{
@@ -63,6 +56,7 @@ export default class MessageList extends Component{
             // console.log(repoList);
             return (
                 <div>
+                   <Carousel data={aToppic} /> 
                    {repoList}
                    {this.props.children}
                 </div>
@@ -83,7 +77,7 @@ function getChosenData(callback){
         mid:baiduId,
         cuid:'',
         bduss:buss,
-        ln:20,
+        ln:40,
         wf:0,
         action:display_Time===0?1:0,
         down:0,
