@@ -104,3 +104,39 @@ function getChosenData(callback){
     get(url,params,callback);
   
 }
+
+
+const detailUrl ='https://m.news.baidu.com/news?tn=bdapibaiyue&t=recommendinfo&baiduid=7C35091F8552AFD19AA4A03D0828F99B%3AFG%3D1&cuid=&bduss=&nids=3409260327877268760&wf=1&remote_device_type=1&os_type=2&screen_size_width=375&screen_size_height=667';
+
+function getDetailData(callback){
+
+    var baiduId ='7C35091F8552AFD19AA4A03D0828F99B%3AFG%3D1';
+    var buss='';
+    var display_Time = 0;
+    var nids = '3409260327877268760';
+    var _wf =1;
+    var params = {
+        mid:baiduId,
+        cuid:'',
+        bduss:buss,
+        ln:20,
+        wf:_wf,
+        action:display_Time===0?1:0,
+        down:0,
+        display_time:display_Time,
+        withtoppic:1,
+        baiduid:baiduId,
+        orientation:1,
+        from:'news_webapp',
+        pd:'webapp',
+        os:'iphone',
+        nids:'',
+        remote_device_type:1,
+        os_type:2,
+        screen_size_width:window.innerWidth,
+        screen_size_height:window.innerWidth
+    }
+    var url ='./news?tn=bdapibaiyue&t=recommendinfo';
+    get(url,params,callback);
+  
+}
