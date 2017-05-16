@@ -14,6 +14,21 @@ export default class MessageList extends Component{
             data:null
         }
     }
+
+    //子组件调用方法，切换
+    gotoDetail(nid){
+        console.log('MessageList-gotoDetail',nid);
+        //获取新闻详情接口数据
+        getDetailData(nid,function(data,error){
+           if (error) {
+                console.log('MessageList-gotoDetail',error);  
+           }
+           else{
+                //获取到数据跳转到详情页面    
+                console.log(data);      
+           }     
+        });
+    }
   
 
     componentDidMount(){
@@ -51,7 +66,7 @@ export default class MessageList extends Component{
                 if (aImgs.length >=3) {
                     type = 2;
                 }
-             return(<MessageItem key={index} type={type} data={repo} />);  
+             return(<MessageItem key={index} type={type} data={repo} gotoDetail={this.gotoDetail.bind(this)}/>);  
             });
             // console.log(repoList);
             return (
@@ -102,12 +117,12 @@ function getChosenData(callback){
 
 const detailUrl ='https://m.news.baidu.com/news?tn=bdapibaiyue&t=recommendinfo&baiduid=7C35091F8552AFD19AA4A03D0828F99B%3AFG%3D1&cuid=&bduss=&nids=3409260327877268760&wf=1&remote_device_type=1&os_type=2&screen_size_width=375&screen_size_height=667';
 
-function getDetailData(callback){
+function getDetailData(nids,callback){
 
     var baiduId ='7C35091F8552AFD19AA4A03D0828F99B%3AFG%3D1';
     var buss='';
     var display_Time = 0;
-    var nids = '3409260327877268760';
+    // var nids = '3409260327877268760';
     var _wf =1;
     var params = {
         mid:baiduId,
@@ -124,7 +139,7 @@ function getDetailData(callback){
         from:'news_webapp',
         pd:'webapp',
         os:'iphone',
-        nids:'',
+        nids:nids,
         remote_device_type:1,
         os_type:2,
         screen_size_width:window.innerWidth,

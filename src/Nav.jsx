@@ -14,6 +14,7 @@ export default class Nav extends Component{
             		<li><Link className="link" to='/local'>本地</Link></li>
             		<li><Link className="link" to='/imgs'>图片</Link></li>
             		<li><Link className="link" to='/info'>娱乐</Link></li>
+                    <li><Link className="link" to='/detail'>测试</Link></li>
             	</ul>
             </div>
 

@@ -19,7 +19,7 @@ class Carousel extends React.Component {
         var swipeList = aToppic.map((repo, index) => {
             var sImageurl = repo.imageurls[0].url;
 
-            return (<div><img src={sImageurl}/><p>{repo.title}</p></div>);
+            return (<div key={index}><img src={sImageurl}/><p>{repo.title}</p></div>);
         });
 
         return (

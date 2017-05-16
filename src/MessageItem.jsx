@@ -11,8 +11,9 @@ export default class MessageItem extends Component{
     }
     
      handleClick(sNid){
-        console.log('MessageItem-Click',sNid);
+        // console.log('MessageItem-Click',sNid);
         //调用父组件的方法，去做界面跳转
+        this.props.gotoDetail(sNid);
     }
 	render(){
 
