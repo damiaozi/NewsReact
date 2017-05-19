@@ -4,6 +4,7 @@ import {render} from 'react-dom'
 import MessageItem from './MessageItem.jsx'
 import {get} from './request.js'
 import Carousel from './components/Carousel.js'
+import {hashHistory} from 'react-router' 
 let type = 0;
 export default class MessageList extends Component{
     constructor(props,context){
@@ -25,7 +26,8 @@ export default class MessageList extends Component{
            }
            else{
                 //获取到数据跳转到详情页面    
-                console.log(data);      
+                console.log(data); 
+                hashHistory.push('/detail');      
            }     
         });
     }
@@ -66,7 +68,7 @@ export default class MessageList extends Component{
                 if (aImgs.length >=3) {
                     type = 2;
                 }
-             return(<MessageItem key={index} type={type} data={repo} gotoDetail={this.gotoDetail.bind(this)}/>);  
+             return(<MessageItem key={index} type={type} data={repo} gotoDetail={this.gotoDetail}/>);  
             });
             // console.log(repoList);
             return (
@@ -92,7 +94,7 @@ function getChosenData(callback){
         mid:baiduId,
         cuid:'',
         bduss:buss,
-        ln:40,
+        ln:20,
         wf:0,
         action:display_Time===0?1:0,
         down:0,
