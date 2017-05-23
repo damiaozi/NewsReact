@@ -13,6 +13,7 @@ import {
 import MessageList from './MessageList.jsx'
 import App from './App.jsx'
 import ImgList from './ImgList.jsx'
+import Detail from './Detail.jsx'
 
 // render(<App />, document.getElementById('root'));
 let routes = <div>
@@ -25,7 +26,7 @@ let routes = <div>
                  <Route path="/newslist/info" component={ImgList} />
 
 	         </Route>
-	         <Route path="/detail" component={ImgList} />
+	         <Route path="/detail" component={Detail} />
           </div>
 
 render(<Router history={hashHistory} routes={routes}>

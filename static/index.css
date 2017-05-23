@@ -1,6 +1,7 @@
 html,body{
 	overflow-x: hidden;
 	background: #fff;
+	margin: 0px;
 }
 
 .item-container{

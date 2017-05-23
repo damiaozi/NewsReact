@@ -13,6 +13,8 @@ a{
 
 .nav{
 	position: fixed;
+	margin: 0px;
+	padding: 0px;
 	width: 100%;
 	background-color: #3e98f0;
 }
@@ -20,6 +22,7 @@ a{
 .nav-menu{
 	
 	overflow: hidden;
+	margin: 0px;
 }
 
 .nav-menu >li{
@@ -29,5 +32,5 @@ a{
 .nav-menu .link{
 	display: block;
 	color: #c2daf8;
-	padding: 0px 10px;
+	padding: 10px 10px;
 }

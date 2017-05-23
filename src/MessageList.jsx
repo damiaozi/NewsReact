@@ -18,18 +18,20 @@ export default class MessageList extends Component{
 
     //子组件调用方法，切换
     gotoDetail(nid){
-        console.log('MessageList-gotoDetail',nid);
-        //获取新闻详情接口数据
-        getDetailData(nid,function(data,error){
-           if (error) {
-                console.log('MessageList-gotoDetail',error);  
-           }
-           else{
-                //获取到数据跳转到详情页面    
-                console.log(data); 
-                hashHistory.push('/detail');      
-           }     
-        });
+        //传nid给详情页，
+         hashHistory.push(`/detail?nid=${nid}`);   
+        // console.log('MessageList-gotoDetail',nid);
+        // //获取新闻详情接口数据
+        // getDetailData(nid,function(data,error){
+        //    if (error) {
+        //         console.log('MessageList-gotoDetail',error);  
+        //    }
+        //    else{
+        //         //获取到数据跳转到详情页面    
+        //         console.log(data); 
+        //         hashHistory.push(`/detail?nid=${nid}`);      
+        //    }     
+        // });
     }
   
 
