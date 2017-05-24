@@ -33,6 +33,7 @@ export default class Detail extends Component{
     }
 
 	render(){
+        console.log('detail','render')
         if (this.state.loadding) {
             return <span>Loadding...</span>;
         }else if (this.state.error !==null) {
@@ -40,27 +41,44 @@ export default class Detail extends Component{
         }else{
            
             var data = this.state.data;
-            var oNews = data.data.news[0];
-            
-            var aContent = oNews.content;
-           
+            // console.log('data',data);
+              // console.log('aNews',data.data.news);
+            var aNews = data.data.news
+            if (!aNews) {
+                 // console.log('return','null');
+                return null
+            }
+          
+           let tittle =  <div className="detail-header">
+            <div className="tittle">{aNews[0].title}</div>
+            <div className="bottom"><b className="tip-type">{aNews[0].site}</b><b className="tip-time">{aNews[0].ts}</b>
+            </div>
+            </div>  
 
+            var aContent = aNews[0].content;
             var contentList = aContent.map((repo,index)=>{
                 // console.log(repo);
              
                 let type = repo.type;
+                var contentItem = <div></div>
                 if (type == 'image') {
                     //图片
                     let imgUrl = repo.data.original.url;
+                    contentItem = <div className="conItem">
+                    <img src={imgUrl} />
+                    </div>
                 }else if(type == 'text'){
                     //文本类型
-                    
+                    contentItem = <div className="conItem">
+                    <p>{repo.data}</p>
+                    </div>
                 }
-             return(<MessageItem key={index} type={type} data={repo} />);  
+             return contentItem;  
             });
             // console.log(repoList);
             return (
-                <div>
+                <div className="detail-container">
+                    {tittle}
                    {contentList}
                    {this.props.children}
                 </div>
@@ -102,4 +120,4 @@ function getDetailData(nids,callback){
     var url ='./news?tn=bdapibaiyue&t=recommendinfo';
     get(url,params,callback);
   
-}
+} 
