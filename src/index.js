@@ -19,11 +19,7 @@ import Detail from './Detail.jsx'
 let routes = <div>
 	         <Route path="/" component={App}>
 				 <IndexRoute component={MessageList}/>
-				 <Route path="/newslist/chosen" component={MessageList} />
-                 <Route path="/newslist/baijia" component={ImgList} />
-                 <Route path="/newslist/local" component={ImgList} />
-                 <Route path="/newslist/imgs" component={ImgList} />
-                 <Route path="/newslist/info" component={ImgList} />
+				 <Route path="/newslist/:id" component={MessageList} />
 
 	         </Route>
 	         <Route path="/detail" component={Detail} />
@@ -33,3 +29,17 @@ render(<Router history={hashHistory} routes={routes}>
 	</Router>,
 	document.getElementById('root')
 );
+
+
+// let routes = <div>
+// 	         <Route path="/" component={App}>
+// 				 <IndexRoute component={MessageList}/>
+// 				 <Route path="/newslist/chosen/:id" component={MessageList} />
+//                  <Route path="/newslist/baijia/:id" component={MessageList} />
+//                  <Route path="/newslist/local/:id" component={MessageList} />
+//                  <Route path="/newslist/imgs/:id" component={MessageList} />
+//                  <Route path="/newslist/info/:id" component={MessageList} />
+
+// 	         </Route>
+// 	         <Route path="/detail" component={Detail} />
+//           </div>

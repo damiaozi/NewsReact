@@ -8,6 +8,7 @@ import {hashHistory} from 'react-router'
 import HotScroll from './components/HotScroll.jsx'
 
 let type = 0;
+
 export default class MessageList extends Component{
     constructor(props,context){
         super(props);
@@ -22,36 +23,33 @@ export default class MessageList extends Component{
     gotoDetail(nid){
         //传nid给详情页，
          hashHistory.push(`/detail?nid=${nid}`);   
-        // console.log('MessageList-gotoDetail',nid);
-        // //获取新闻详情接口数据
-        // getDetailData(nid,function(data,error){
-        //    if (error) {
-        //         console.log('MessageList-gotoDetail',error);  
-        //    }
-        //    else{
-        //         //获取到数据跳转到详情页面    
-        //         console.log(data); 
-        //         hashHistory.push(`/detail?nid=${nid}`);      
-        //    }     
-        // });
+
     }
   
-
-    componentDidMount(){
-        var _this = this;
-        //获取新闻列表数据
-        getChosenData(function(jsondata,error){
-           if (error) {
-                console.log(error);
-                _this.setState({loadding:false,error:error}); 
-            }else{
-                // console.log(jsondata);
-                _this.setState({loadding:false,data:jsondata}); 
-            }
-        }); 
+    getData(){
+    var _this = this;
+            // let sId =_this.props.params.id || 'chosen'
+            //获取新闻列表数据
+            getChosenData(function(jsondata,error){
+               if (error) {
+                    console.log(error);
+                    _this.setState({loadding:false,error:error}); 
+                }else{
+                    console.log(jsondata);
+                    _this.setState({loadding:false,data:jsondata}); 
+                }
+            }); 
     }
 
+    componentDidMount(){
+      
+        this.getData()
+    }
+
+
 	render(){
+        console.log('render',this.props.params.id)
+        let sId = this.props.params.id;
         if (this.state.loadding) {
             return <span>Loadding...</span>;
         }else if (this.state.error !==null) {
@@ -93,8 +91,8 @@ export default class MessageList extends Component{
             return (
                 <div>
                     <div className="top-hide"></div>
-                   <Carousel data={aToppic} /> 
-                    <HotScroll />
+                    {sId=='baijia'?'': <Carousel data={aToppic} /> }
+                    {sId=='baijia'||sId=='imgs'?'':  <HotScroll /> }
                    {topList}
                    {repoList}
                    {this.props.children}
@@ -176,11 +174,11 @@ function getDetailData(nids,callback){
 
 
 // 百家新闻列表
-function getBaiJiaData(callback){
+function getDataByType(sId,callback){
     var baiduId ='7C35091F8552AFD19AA4A03D0828F99B%3AFG%3D1';
     var buss='';
     var display_Time = 0;
-    var params = {
+   var params = {
         mid:baiduId,
         cuid:'',
         bduss:buss,
@@ -201,7 +199,28 @@ function getBaiJiaData(callback){
         screen_size_width:window.innerWidth,
         screen_size_height:window.innerWidth
     }
-    var url ='./news?tn=bdapibaiyue&t=getbaijialist';
+    let sType='newchosenlist';
+    switch(sId){
+        case 'chosen':
+            sType='newchosenlist';
+        break;
+         case 'baijia':
+            sType='getbaijialist';
+        break;
+         case 'local':
+            sType='localnewslist';
+        break;
+         case 'imgs':
+            sType='medianewslist';
+        break;
+         case 'info':
+            sType='recommendlist';
+        break;
+    }
+    console.log(sId)
+      console.log(sType)
+    var url ='./news?tn=bdapibaiyue&t='+sType;
+    console.log(url)
     get(url,params,callback);
   
 }

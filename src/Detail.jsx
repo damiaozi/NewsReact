@@ -26,7 +26,7 @@ export default class Detail extends Component{
                 console.log(error);
                 _this.setState({loadding:false,error:error}); 
             }else{
-                console.log(jsondata);
+                // console.log(jsondata);
                 _this.setState({loadding:false,data:jsondata}); 
             }
         }); 
@@ -65,12 +65,12 @@ export default class Detail extends Component{
                 if (type == 'image') {
                     //图片
                     let imgUrl = repo.data.original.url;
-                    contentItem = <div className="conItem">
+                    contentItem = <div key={index} className="conItem">
                     <img src={imgUrl} />
                     </div>
                 }else if(type == 'text'){
                     //文本类型
-                    contentItem = <div className="conItem">
+                    contentItem = <div key={index} className="conItem">
                     <p>{repo.data}</p>
                     </div>
                 }

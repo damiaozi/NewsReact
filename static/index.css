@@ -45,7 +45,55 @@ a{
 	background-color: #3e98f0;
 	z-index: 100;
 }
+/*导航头*/
+.nav-header{
+	position: relative;
+}
+.header-container{
+	/*overflow: hidden;*/
+	height: 48px;
+	width: 100%;
+	border-bottom: 1px solid #5dabf0;
+	position: relative;
+	background: #3e98f0 url(https://gss0.bdstatic.com/5foIcy0a2gI2n2jgoY3K/n/nvn/static/news/imgs/bg-news-logo_344ce44.png) no-repeat;
+    background-position: center 10px;
+    background-size: 65px auto;
+}
 
+
+.header-container a{
+	width: 34px;
+    height: 100%;
+    background: url(https://gss0.bdstatic.com/5foIcy0a2gI2n2jgoY3K/n/nvn/static/news/imgs/icon-bg_6e9bc53.png) no-repeat;
+    background-size: 40px 500px;
+}
+.header-container .baidu-icon{
+	float: left;
+	background-position: center 6px;
+	margin-left: 8px;
+
+}
+
+.header-container .profile-icon{
+	float: left;
+	background-position: center -461px;
+	margin-left: 10px;
+}
+
+.header-container .subscribe-icon{
+	float: right;
+	background-position: center -105px;
+	margin-right: 8px;
+
+}
+
+.header-container .search-icon{
+	float: right;
+	background-position: center -160px;
+	margin-right: 10px;
+}
+
+/*导航分类*/
 .nav-menu{
 	
 	overflow: hidden;
@@ -55,7 +103,7 @@ a{
 .nav-menu >li{
 	float: left;
 	height: 40px;
-	margin: 0px 16px;
+	margin: 0px 12px;
 }
 
 .nav-menu .link{
@@ -150,7 +198,7 @@ a{
 }
 
 .top-hide{
-	height: 38px;
+	height: 87px;
 	width: 100%;
 }
 
@@ -287,12 +335,11 @@ a{
 .hot-scroll .hot-info{
 	margin-top: 1px;
  	width: 24px;
-    height: 14px;
     background-color: #e02f2f;
     color: #fff;
     text-align: center;
     line-height: 14px;
-
+	padding-bottom: 3px;
 }
 
 

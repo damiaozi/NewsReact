@@ -2,7 +2,7 @@
 import React,{ Component } from 'react' //es6
 import {render} from 'react-dom'
 import {get} from '../request.js'
-
+  let timer;
 export default class HotScroll extends Component{
 	constructor(props,context){
         super(props);
@@ -14,7 +14,7 @@ export default class HotScroll extends Component{
         }
 
     }
-  
+
      componentDidMount(){
         var _this = this;
         //获取热点新闻数据
@@ -27,7 +27,7 @@ export default class HotScroll extends Component{
                 _this.setState({loadding:false,data:jsondata}); 
                 let len = jsondata.data.length;
 
-                setInterval(function(){
+                timer=setInterval(function(){
                     let _sTop = _this.state.sTop -18;
                      // console.log(len*18)
                     if (_sTop <= -len*18) {
@@ -71,7 +71,13 @@ export default class HotScroll extends Component{
         		)
 
         }
-    }    
+    } 
+
+    componentWillUnmount(){
+        //停止定时器
+        console.log('componentWillUnmount')
+        clearInterval(timer)
+    }   
 }
 
      function getHotWordData(callback){ 
