@@ -1,13 +1,80 @@
-html,body{
-	overflow-x: hidden;
+
+html {
+    font-size: 100px
+}
+
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 90px
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: arial, sans-serif
+    overflow-x: hidden;
 	background: #fff;
+}
+
+body * {
+    padding: 0;
+    margin: 0;
+    font-size: .16rem
+}
+
+body a {
+    text-decoration: none
+}
+
+li{
+	list-style: none;
+	
+}
+
+a{
+	text-decoration: none;
+}
+/* 顶部导航 */
+.nav{
+	position: fixed;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	background-color: #3e98f0;
+	z-index: 100;
+}
+
+.nav-menu{
+	
+	overflow: hidden;
 	margin: 0px;
 }
 
+.nav-menu >li{
+	float: left;
+	height: 40px;
+	margin: 0px 16px;
+}
+
+.nav-menu .link{
+	display: block;
+	color: #c2daf8;
+	padding: 0px 4px;
+	line-height: 41px;
+}
+
+.nav-menu .selected .link{
+	color: #fff!important;
+    border-bottom: 2px solid #fff!important;
+    height: 38px!important;
+}
+
+/* 新闻列表 */
 .item-container{
 	overflow:hidden;
-	width:100%;
-	padding:25px 10px; 
+	padding: 8.5px  17px 10px;
 	border-bottom: 1px solid #f5f5f5;
 	/* background: red; */
 	box-sizing: border-box;
@@ -17,8 +84,11 @@ html,body{
 	margin-right:10px;
 }*/
 .list-main .tittle{
+	font-size:.18rem;
+	line-height: .26rem;
 	color:#333;
-	font-size:16px;
+	max-height: .52rem;
+	overflow: hidden;
 }
 
 .list-bottom{
@@ -28,7 +98,7 @@ html,body{
 .list-bottom .tip-time{
 	display:inline-block;
 	color:#999;
-	font-size:12px;
+	font-size:.13rem;
 	margin-right:5px;
 	font-weight:400;
 }
@@ -36,7 +106,7 @@ html,body{
 .list-bottom .tip-type{
 	display:inline-block;
 	color:#ef3f41;
-	font-size:4px;
+	font-size:.04rem;
 	font-weight:400;
 	border:.1px solid #efb9b9;
 }
@@ -79,7 +149,10 @@ html,body{
 	/* height: auto; */
 }
 
-
+.top-hide{
+	height: 38px;
+	width: 100%;
+}
 
 /*滚动条*/
 .swipe {
@@ -91,37 +164,75 @@ html,body{
 .swipe-wrap {
     overflow: hidden;
     position: relative;
+
 }
 .swipe-wrap > div {
     float: left;
     width: 100 % ;
     position: relative;
+    
 }
 
 .swipe-wrap > div img{
 	display: block;
 	height:auto;
 	width:100%;
+	min-height: 187px;
+	vertical-align: middle;
+}
+
+.swipe-wrap div{
+	 height: 2rem;
 }
 
 .swipe-wrap > div p{
 	position: absolute;
-	left: 20px;
-	bottom: 0px;
-	height: 30px;
-	line-height: 30px;
+	left: 0px;
+	bottom: 0;
+	height: 60px;
+	padding: 0 17px;
+	text-align: left|bottom;
 	color: #fff;
-	font-size:16px;
+	font-size:.18rem;
+	width: 100%;
+	background-image: linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 100%);
+}
+
+.swipe-wrap > div span{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	font-size: .18rem;
 }
 
 
 /* 详情页 */
-.detail-container{
-	padding: 24px;
+.deatil-wrap{
+	
+	background-color: #f5f5f5;
+}
+.deatil-wrap>div{
 	background-color: #f5f5f5;
 }
 
+.detail-container{
+	padding: 24px;
+	
+}
 
+.detail-container .conItem{
+	margin-bottom: 20px;
+}
+
+.detail-container .conItem>p{
+	color: #333;
+	text-align: left;
+	font-size: .18rem;
+	line-height: 1.5;
+}
 
 .detail-container img{
 	height:auto;
@@ -131,12 +242,14 @@ html,body{
 
 
 .detail-header{
-	margin-bottom: 10px;
+	margin-bottom: .11rem;
 }
 
 .detail-header .tittle{
+	text-align: left;
+	
 	color:#333;
-	font-size:20px;
+	font-size:.24rem;
 	font-weight: bold;
 }
 
@@ -147,7 +260,7 @@ html,body{
 .detail-header .tip-time{
 	display:inline-block;
 	color:#999;
-	font-size:12px;
+	font-size:.12rem;
 	margin-right:5px;
 	font-weight:400;
 }
@@ -155,7 +268,49 @@ html,body{
 .detail-header .tip-type{
 	display:inline-block;
 	color:#999;
-	font-size:12px;
+	font-size:.12rem;
 	margin-right:5px;
 	font-weight:400;
+}
+
+
+/*今日热点新闻*/
+
+.hot-scroll{
+	height: 18px;
+	overflow: hidden;
+	position: relative;
+	margin: 17px 0px;
+	padding: 0px 17px;
+}
+
+.hot-scroll .hot-info{
+	margin-top: 1px;
+ 	width: 24px;
+    height: 14px;
+    background-color: #e02f2f;
+    color: #fff;
+    text-align: center;
+    line-height: 14px;
+
+}
+
+
+
+.hot-scroll .hot-info>span{
+	font-size: .1rem;
+}
+
+
+.hot-scroll >ul{
+
+	position: absolute;
+	left: 50px;
+	top: 0px;
+	transition: top 1.5s;
+}
+.hot-scroll li{
+;
+	height: 18px;
+	line-height: 18px;
 }

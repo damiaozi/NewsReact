@@ -3,6 +3,7 @@ import React,{ Component } from 'react' //es6
 import {render} from 'react-dom'
 import MessageItem from './MessageItem.jsx'
 import {get} from './request.js'
+import HotScroll from './components/HotScroll.jsx'
 let type = 0;
 export default class Detail extends Component{
     constructor(props,context){
@@ -77,10 +78,13 @@ export default class Detail extends Component{
             });
             // console.log(repoList);
             return (
-                <div className="detail-container">
-                    {tittle}
-                   {contentList}
-                   {this.props.children}
+                <div className="deatil-wrap">
+                    <HotScroll />
+                    <div className="detail-container">
+                        {tittle}
+                       {contentList}
+                       {this.props.children}
+                    </div>
                 </div>
             );
         }
